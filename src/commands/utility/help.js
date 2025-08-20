@@ -156,12 +156,12 @@ async function getHelpMenu({ client, guild }) {
           inline: true
         }
         ])
-    .setDescription(`<a:loading:1363179590851493958> **AIO V3 is here to help. \n > It is a multipourpose bot for your discord. \n > It can help you to build a Super server.**
+    .setDescription(`<a:loading:1363179590851493958> **𝓝𝓪𝓽𝓻𝓲𝔁 is here to help. \n > It is a multipourpose bot for your discord. \n > It can help you to build a Super server.**
 <a:loading:1363179590851493958> __**BOT INFO**__
 > <:circle:1362988697338773765> Prefix: \`/\`
 > <:circle:1362988697338773765> Discord.js Version: \`v14.15.2\`
 > <:circle:1362988697338773765> Running on \`${process.versions.node}\`
-> <:circle:1362988697338773765> Modified by \`ray.dev\``);
+> <:circle:1362988697338773765> Created by \`Natrix\``);
 
   return {
     embeds: [embed],
