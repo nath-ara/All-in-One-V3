@@ -110,7 +110,7 @@ async function getHelpMenu({ client, guild }) {
     .setLabel("Support Server")
     .setEmoji('1238430085795545139')
     .setStyle(ButtonStyle.Link)
-    .setURL("https://dsc.gg/codexdev");
+    .setURL("https://discord.gg/7e74hzDdqg");
 
   const inviteButton = new ButtonBuilder()
     .setLabel("Invite Me")
