@@ -1,7 +1,7 @@
 module.exports = {
   OWNER_IDS: ["1341478551764860958"], // Bot owner ID's
   SUPPORT_SERVER: "https://discord.gg/7e74hzDdqg", // Your bot support server
-  CLIENT_ID: "1168170696493510826",
+  CLIENT_ID: "1406800857210818570",
   VOTE: "https://discord.gg/7e74hzDdqg",
   PREFIX_COMMANDS: {
     ENABLED: true, // Enable/Disable prefix commands
