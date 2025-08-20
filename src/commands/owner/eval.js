@@ -2,7 +2,7 @@ const { EmbedBuilder, ApplicationCommandOptionType } = require("discord.js");
 const { EMBED_COLORS } = require("@root/config");
 
 // This dummy token will be replaced by the actual token
-const DUMMY_TOKEN = "1341478551764860958";
+const DUMMY_TOKEN = "MY_TOKEN_IS_SECRET";
 
 /**
  * @type {import("@structures/Command")}
