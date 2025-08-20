@@ -1,5 +1,5 @@
 module.exports = {
-  OWNER_IDS: ["870179991462236170"], // Bot owner ID's
+  OWNER_IDS: ["1341478551764860958"], // Bot owner ID's
   SUPPORT_SERVER: "https://dsc.gg/codexdev", // Your bot support server
   CLIENT_ID: "1168170696493510826",
   VOTE: "https://dsc.gg/codexdev",
