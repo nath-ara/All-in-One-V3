@@ -57,7 +57,7 @@ async function urban(word) {
     .setDescription(`**Definition**\`\`\`css\n${data.definition}\`\`\``)
     .addFields(
       {
-        name: "Author",
+        name: "Auteur",
         value: data.author,
         inline: true,
       },
@@ -72,12 +72,12 @@ async function urban(word) {
         inline: true,
       },
       {
-        name: "Example",
+        name: "Exemple",
         value: data.example,
         inline: false,
       }
     )
-    .setFooter({ text: `Created ${moment(data.written_on).fromNow()}` });
+    .setFooter({ text: `Cree en ${moment(data.written_on).fromNow()}` });
 
   return { embeds: [embed] };
 }
