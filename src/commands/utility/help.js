@@ -132,36 +132,36 @@ async function getHelpMenu({ client, guild }) {
     .setImage(`https://share.creavite.co/663f19346f72a4507e459a7b.gif`)
         .addFields([
         {
-          name: "__**👜 caractèristiques [1-9]**__",
+          name: "__**👜caractèristiques [1-9]**__",
           value: `>>> 🧑‍💼 Admin 
-                     📲 Anime 
-<:hammer:1362988671560843475> Automod 
-<:cash:1362988707992441042> Economy 
-<:fun:1362988649641148557> Fun 
-<:notification:1362988666640797847> Giveaway 
-<:link:1362988772760748062> Invite 
-<:bot:1362988630733357127> Information`,
+                    📲 Anime 
+                     🔨 Automod 
+                     💵 Economy 
+                     🎊 Fun 
+                     🎁 Giveaway 
+                     🔗 Invite 
+                     🤖 Information`,
           inline: true
         },
         {
-          name: "__**<a:loading:1363179590851493958> Features [10-18]**__",
-          value: `>>> <:gear:1362988633748934768> Moderation 
-<:fav_songs:1362988694390439946> Music 
-<:lock:1362988677784932564> Owner 
-<:com:1362988647137284136> Social 
-<:chart:1362988642225885314> Statistics 
-<:claim:1362988660273709067> Suggestions 
-<:transcript:1362988747326492782> Ticket 
-<:search:1362988723737723152> Utility `,
+          name: "__**👜caractèristiques [10-18]**__",
+          value: `>>> ⚙️ Moderation 
+                    🎶 Music 
+                    👑 Owner 
+                    ⌚️ Social 
+                    📈 Statistics 
+                    📮 Suggestions 
+                    🎫 Ticket 
+                    🔍 Utility `,
           inline: true
         }
         ])
-    .setDescription(`<a:loading:1363179590851493958> **𝓝𝓪𝓽𝓻𝓲𝔁 is here to help. \n > It is a multipourpose bot for your discord. \n > It can help you to build a Super server.**
-<a:loading:1363179590851493958> __**BOT INFO**__
-> <:circle:1362988697338773765> Prefix: \`/\`
-> <:circle:1362988697338773765> Discord.js Version: \`v14.15.2\`
-> <:circle:1362988697338773765> Running on \`${process.versions.node}\`
-> <:circle:1362988697338773765> Created by \`Natrix\``);
+    .setDescription(` ⚙️**Shiba est la pour t'aider. \n > C'est un bot multifonction pour votre discord. \n >Il peut vous aider à créer un super serveur .**
+                              🔋 __**BOT INFO**__
+>                             💨  Prefix: \`/\`
+>                             💨  Discord.js Version: \`v14.15.2\`
+>                             💨  Cours sur \`${process.versions.node}\`
+>                             💨  Crée par \`Natrix\``);
 
   return {
     embeds: [embed],
