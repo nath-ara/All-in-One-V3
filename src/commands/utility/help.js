@@ -132,9 +132,9 @@ async function getHelpMenu({ client, guild }) {
     .setImage(`https://share.creavite.co/663f19346f72a4507e459a7b.gif`)
         .addFields([
         {
-          name: "__**<a:loading:1363179590851493958> Features [1-9]**__",
-          value: `>>> <:points:1362988742088065279> Admin 
-<:users:1362988710416875560> Anime 
+          name: "__**👜 caractèristiques [1-9]**__",
+          value: `>>> 🧑‍💼 Admin 
+                     📲 Anime 
 <:hammer:1362988671560843475> Automod 
 <:cash:1362988707992441042> Economy 
 <:fun:1362988649641148557> Fun 
