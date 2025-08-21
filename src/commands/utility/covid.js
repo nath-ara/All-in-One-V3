@@ -14,7 +14,7 @@ module.exports = {
   botPermissions: ["EmbedLinks"],
   command: {
     enabled: true,
-    usage: "<country>",
+    usage: "<pays>",
     minArgsCount: 1,
   },
   slashCommand: {
