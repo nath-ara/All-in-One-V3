@@ -7,7 +7,7 @@ const { parse } = require("twemoji-parser");
  */
 module.exports = {
   name: "bigemoji",
-  description: "enlarge an emoji",
+  description: "élargir un emoji",
   category: "UTILITY",
   botPermissions: ["EmbedLinks"],
   command: {
@@ -45,16 +45,16 @@ function getEmoji(user, emoji) {
   const custom = parseEmoji(emoji);
 
   const embed = new EmbedBuilder()
-    .setAuthor({ name: "❯ Big Emoji ❮" })
+    .setAuthor({ name: "❯ Gros Emoji ❮" })
     .setColor(EMBED_COLORS.BOT_EMBED)
-    .setFooter({ text: `Requested by ${user.username}` });
+    .setFooter({ text: `Demander par ${user.username}` });
 
   if (custom.id) {
     embed.setImage(`https://cdn.discordapp.com/emojis/${custom.id}.${custom.animated ? "gif" : "png"}`);
     return { embeds: [embed] };
   }
   const parsed = parse(emoji, { assetType: "png" });
-  if (!parsed[0]) return "Not a valid emoji";
+  if (!parsed[0]) return "N'est pas un emoji valide";
 
   embed.setImage(parsed[0].url);
   return { embeds: [embed] };
