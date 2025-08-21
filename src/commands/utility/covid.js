@@ -8,7 +8,7 @@ const timestampToDate = require("timestamp-to-date");
  */
 module.exports = {
   name: "covid",
-  description: "get covid statistics for a country",
+  description: "Obtenez des statistiques covid pour un pays",
   cooldown: 5,
   category: "UTILITY",
   botPermissions: ["EmbedLinks"],
@@ -21,8 +21,8 @@ module.exports = {
     enabled: true,
     options: [
       {
-        name: "country",
-        description: "country name to get covid statistics for",
+        name: "pays",
+        description: "Nom du pays pour obtenir des statistiques covid pour",
         type: ApplicationCommandOptionType.String,
         required: true,
       },
@@ -45,7 +45,7 @@ module.exports = {
 async function getCovid(country) {
   const response = await getJson(`https://disease.sh/v2/countries/${country}`);
 
-  if (response.status === 404) return "```css\nCountry with the provided name is not found```";
+  if (response.status === 404) return "```css\nLe pays avec le nom fourni n'est pas trouvé```";
   if (!response.success) return MESSAGES.API_ERROR;
   const { data } = response;
 
@@ -56,52 +56,52 @@ async function getCovid(country) {
     .setColor(EMBED_COLORS.BOT_EMBED)
     .addFields(
       {
-        name: "Cases Total",
+        name: "Cas Total",
         value: data?.cases.toString(),
         inline: true,
       },
       {
-        name: "Cases Today",
+        name: "Cas Aujourd'hui",
         value: data?.todayCases.toString(),
         inline: true,
       },
       {
-        name: "Deaths Total",
+        name: "Morts Total",
         value: data?.deaths.toString(),
         inline: true,
       },
       {
-        name: "Deaths Today",
+        name: "Morts Aujourd'huu",
         value: data?.todayDeaths.toString(),
         inline: true,
       },
       {
-        name: "Recovered",
+        name: "Retabli",
         value: data?.recovered.toString(),
         inline: true,
       },
       {
-        name: "Active",
+        name: "Actif",
         value: data?.active.toString(),
         inline: true,
       },
       {
-        name: "Critical",
+        name: "Critique",
         value: data?.critical.toString(),
         inline: true,
       },
       {
-        name: "Cases per 1 million",
+        name: "Cas par 1 million",
         value: data?.casesPerOneMillion.toString(),
         inline: true,
       },
       {
-        name: "Deaths per 1 million",
+        name: "Morts par 1 million",
         value: data?.deathsPerOneMillion.toString(),
         inline: true,
       }
     )
-    .setFooter({ text: `Last updated on ${mg}` });
+    .setFooter({ text: `Dernière mise a jour le ${mg}` });
 
   return { embeds: [embed] };
 }
