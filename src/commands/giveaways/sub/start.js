@@ -32,10 +32,11 @@ module.exports = async (member, giveawayChannel, duration, prize, winners, host,
       messages: {
         giveaway: "<:present:1407887560717373501> **GIVEAWAY** <:present:1407887560717373501>",
         giveawayEnded: "<:present:1407887560717373501> **GIVEAWAY ENDED** <:present:1407887560717373501>",
-        inviteToParticipate: "React with <:present:1407887560717373501> to enter",
-        dropMessage: "Be the first to react with <:present:1407887560717373501> to win!",
+        inviteToParticipate: "React with 🎉 to enter",
+        dropMessage: "Be the first to react with 🎉 to win!",
         hostedBy: `\nHosted by: ${host.username}`,
       },
+      reaction: "🎉", // obligatoire pour discord-giveaways
     };
 
     if (allowedRoles.length > 0) {
