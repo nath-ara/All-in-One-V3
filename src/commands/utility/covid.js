@@ -14,14 +14,14 @@ module.exports = {
   botPermissions: ["EmbedLinks"],
   command: {
     enabled: true,
-    usage: "<pays>",
+    usage: "<country>",
     minArgsCount: 1,
   },
   slashCommand: {
     enabled: true,
     options: [
       {
-        name: "pays",
+        name: "country",
         description: "Nom du pays pour obtenir des statistiques covid pour",
         type: ApplicationCommandOptionType.String,
         required: true,
