@@ -156,7 +156,7 @@ async function getHelpMenu({ client, guild }) {
           inline: true
         }
         ])
-    .setDescription(` ⚙️**Shiba est la pour t'aider. \n > C'est un bot multifonction pour votre discord. \n >Il peut vous aider à créer un super serveur .**
+    .setDescription(` ⚙️**Shiba est la pour t'aider. \n > C'est un bot multifonction pour votre discord. \n > Il peut vous aider à créer un super serveur .**
                               🔋 __**BOT INFO**__
 >                             💨  Prefix: \`/\`
 >                             💨  Discord.js Version: \`v14.15.2\`
