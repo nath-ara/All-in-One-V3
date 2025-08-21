@@ -8,7 +8,7 @@ const { stripIndent } = require("common-tags");
  */
 module.exports = {
   name: "github",
-  description: "shows github statistics of a user",
+  description: "regarder les statistique github d'une personne",
   cooldown: 10,
   category: "UTILITY",
   botPermissions: ["EmbedLinks"],
@@ -92,7 +92,7 @@ async function getGithubUser(target, author) {
     .setDescription(`**Bio**:\n${bio || "Not Provided"}`)
     .setImage(avatarUrl)
     .setColor(0x6e5494)
-    .setFooter({ text: `Requested by ${author.username}` });
+    .setFooter({ text: `Demander par ${author.username}` });
 
   return { embeds: [embed] };
 }
