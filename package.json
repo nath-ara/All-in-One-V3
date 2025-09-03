@@ -1,9 +1,9 @@
 {
-  "name": "discord-js-bot",
+  "name": "Kyra✨",
   "version": "5.5.0",
-  "description": "An open-source, multipurpose discord bot built using discord-js",
+  "description": "Created by Natrix and Quimic and Juloxx",
   "main": "bot.js",
-  "author": "Sai Teja M",
+  "author": "Kyra✨ devellopement",
   "license": "ISC",
   "engines": {
     "node": ">=18.0.0"
