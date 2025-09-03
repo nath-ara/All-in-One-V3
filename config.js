@@ -1,7 +1,7 @@
 module.exports = {
   OWNER_IDS: ["1341478551764860958"], // Bot owner ID's
-  SUPPORT_SERVER: "https://discord.gg/7e74hzDdqg", // Your bot support server
-  CLIENT_ID: "1406800857210818570",
+  SUPPORT_SERVER: "https://discord.gg/X9NDdMf3xf", // Your bot support server
+  CLIENT_ID: "1412323222980005972",
   VOTE: "https://discord.gg/7e74hzDdqg",
   PREFIX_COMMANDS: {
     ENABLED: true, // Enable/Disable prefix commands
@@ -72,7 +72,7 @@ module.exports = {
 
   GIVEAWAYS: {
     ENABLED: true,
-    REACTION: "<:present:1362988775151767743>",
+    REACTION: "🎁",
     START_EMBED: "#FF468A",
     END_EMBED: "#FF468A",
   },
@@ -120,8 +120,8 @@ module.exports = {
   SUGGESTIONS: {
     ENABLED: true, // Should the suggestion system be enabled
     EMOJI: {
-      UP_VOTE: "⬆️",
-      DOWN_VOTE: "⬇️",
+      UP_VOTE: "✅",
+      DOWN_VOTE: "❌",
     },
     DEFAULT_EMBED: "#4F545C",
     APPROVED_EMBED: "#43B581",
