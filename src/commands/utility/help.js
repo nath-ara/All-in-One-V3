@@ -156,12 +156,12 @@ async function getHelpMenu({ client, guild }) {
           inline: true
         }
         ])
-    .setDescription(` ⚙️**Shiba est la pour t'aider. \n > C'est un bot multifonction pour votre discord. \n > Il peut vous aider à créer un super serveur .**
+    .setDescription(` ⚙️**Kyra✨ est la pour t'aider. \n > C'est un bot multifonction pour votre discord. \n > Il peut vous aider à créer un super serveur .**
                               🔋 __**BOT INFO**__
 >                             💨  Prefix: \`/\`
 >                             💨  Discord.js Version: \`v14.15.2\`
 >                             💨  Cours sur \`${process.versions.node}\`
->                             💨  Crée par \`Natrix\``);
+>                             💨  Crée par \`Natrix and Quimic and Juloxx\``);
 
   return {
     embeds: [embed],
