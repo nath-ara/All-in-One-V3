@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => res.send('Bot Discord en ligne !'));
+app.get('/', (req, res) => res.send('© Kyra developpement 2025 !'));
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Serveur web lancé sur le port ${process.env.PORT || 3000}`);
 });
