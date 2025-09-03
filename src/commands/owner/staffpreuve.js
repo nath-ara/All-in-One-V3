@@ -1,53 +1,59 @@
 const { EmbedBuilder } = require("discord.js");
 
 /**
- * @type {import("@structures/Command")}
+ * Commande Staff Preuve avec préfixe personnalisé (?)
  */
 module.exports = {
   name: "staffpreuve",
-  description: "Affiche la preuve staff personnalisée",
+  description: "Affiche la preuve staff personnalisée avec un préfixe spécial",
   botPermissions: ["EmbedLinks"],
   command: {
-    enabled: true,
+    enabled: false, // ❌ on désactive l’appel via le handler classique
     usage: "",
     minArgsCount: 0,
   },
   slashCommand: {
-    enabled: false, // tu peux mettre true si tu veux aussi en slash
+    enabled: false, // pas dispo en slash
   },
 
+  /**
+   * Cette fonction est appelée pour tous les messages
+   */
   async messageRun(message) {
-    const preuve = getStaffPreuve(message.author.id);
-    if (!preuve) return message.safeReply("❌ Tu n'es pas autorisé à utiliser cette commande.");
-    await message.safeReply({ embeds: [preuve] });
-  },
+    // On écoute UNIQUEMENT le préfixe spécial
+    if (message.content !== "?staffpreuve") return;
 
-  async interactionRun(interaction) {
-    const preuve = getStaffPreuve(interaction.user.id);
-    if (!preuve) return interaction.followUp("❌ Tu n'es pas autorisé à utiliser cette commande.");
-    await interaction.followUp({ embeds: [preuve] });
+    const preuve = getStaffPreuve(message.author.id);
+    if (!preuve) {
+      return message.safeReply("❌ Tu n'es pas un owner du bot.");
+    }
+
+    await message.safeReply({ embeds: [preuve] });
   },
 };
 
 // ------------------ CONFIG ------------------ //
 
-// Embeds personnalisés par ID
+/**
+ * Retourne un embed différent selon l’ID
+ */
 const getStaffPreuve = (userId) => {
   const preuves = {
     "1179587826669592587": new EmbedBuilder()
       .setTitle("📜 Preuve Staff")
-      .setDescription("Voici la preuve officielle que <@1179587826669592587> est Owner ✅")
+      .setDescription("Voici la preuve officielle que <@1179587826669592587> est Owner est gestionnaire du bot
+                      ✅")
       .setColor("Blue"),
 
     "1204961543528382467": new EmbedBuilder()
       .setTitle("📜 Preuve Staff")
-      .setDescription("Voici la preuve officielle que <@1204961543528382467> est Owner ✅")
+      .setDescription("Voici la preuve officielle que <@1204961543528382467> est Owner est codeur ✅")
       .setColor("Red"),
 
     "1341478551764860958": new EmbedBuilder()
       .setTitle("📜 Preuve Staff")
-      .setDescription("Voici la preuve officielle que <@1341478551764860958> est Owner ✅")
-      .setColor("Red"),
+      .setDescription("Voici la preuve officielle que <@1341478551764860958> est Owner principale du bot est codeur... ✅")
+      .setColor("Green"),
   };
 
   return preuves[userId] || null;
