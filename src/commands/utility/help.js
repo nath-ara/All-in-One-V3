@@ -110,7 +110,7 @@ async function getHelpMenu({ client, guild }) {
     .setLabel("Support Server")
     .setEmoji('1238430085795545139')
     .setStyle(ButtonStyle.Link)
-    .setURL("https://discord.gg/7e74hzDdqg");
+    .setURL("https://discord.gg/X9NDdMf3xf");
 
   const inviteButton = new ButtonBuilder()
     .setLabel("Invite Me")
@@ -290,7 +290,7 @@ function getSlashCategoryEmbeds(client, category) {
       const subCmds = cmd.slashCommand.options?.filter((opt) => opt.type === "SUB_COMMAND");
       const subCmdsString = subCmds?.map((s) => s.name).join(", ");
 
-      return `<:arrow_gx:1362988744616972499>\`/${cmd.name}\`\n <:circle:1362988697338773765> ${cmd.description} \n ${
+      return `🔀\`/${cmd.name}\`\n ➡️ ${cmd.description} \n ${
         !subCmds?.length ? "" : `❯ **SubCommands [${subCmds?.length}]**: ${subCmdsString}\n`
       } `;
     });
@@ -364,7 +364,7 @@ function getMsgCategoryEmbeds(client, category, prefix) {
 
   while (commands.length) {
     let toAdd = commands.splice(0, commands.length > CMDS_PER_PAGE ? CMDS_PER_PAGE : commands.length);
-    toAdd = toAdd.map((cmd) => `<:arrow_gx:1362988744616972499> \`${prefix}${cmd.name}\`\n <:circle:1362988697338773765> ${cmd.description} \n`);
+    toAdd = toAdd.map((cmd) => `🔀 \`${prefix}${cmd.name}\`\n ➡️ ${cmd.description} \n`);
     arrSplitted.push(toAdd);
   }
 
