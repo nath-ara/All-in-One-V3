@@ -1,60 +1,35 @@
 const { EmbedBuilder } = require("discord.js");
 
-/**
- * Commande Staff Preuve avec préfixe personnalisé (?)
- */
-module.exports = {
-  name: "staffpreuve",
-  description: "Affiche la preuve staff personnalisée avec un préfixe spécial",
-  botPermissions: ["EmbedLinks"],
-  command: {
-    enabled: false, // ❌ on désactive l’appel via le handler classique
-    usage: "",
-    minArgsCount: 0,
-  },
-  slashCommand: {
-    enabled: false, // pas dispo en slash
-  },
+module.exports = (client) => {
+  const name = "staffpreuve"; // Nom de la commande pour référence
+  const prefix = "?"; // Préfixe unique pour cette commande
 
-  /**
-   * Cette fonction est appelée pour tous les messages
-   */
-  async messageRun(message) {
-    // On écoute UNIQUEMENT le préfixe spécial
-    if (message.content !== "?staffpreuve") return;
-
-    const preuve = getStaffPreuve(message.author.id);
-    if (!preuve) {
-      return message.safeReply("❌ Tu n'es pas un owner du bot.");
-    }
-
-    await message.safeReply({ embeds: [preuve] });
-  },
-};
-
-// ------------------ CONFIG ------------------ //
-
-/**
- * Retourne un embed différent selon l’ID
- */
-const getStaffPreuve = (userId) => {
-  const preuves = {
+  // Preuves personnalisées par ID
+  const staffPreuves = {
     "1179587826669592587": new EmbedBuilder()
       .setTitle("📜 Preuve Staff")
-      .setDescription("Voici la preuve officielle que <@1179587826669592587> est Owner est gestionnaire du bot
-                      ✅")
+      .setDescription("Voici la preuve officielle que <@1179587826669592587> est Owner ✅")
       .setColor("Blue"),
 
     "1204961543528382467": new EmbedBuilder()
       .setTitle("📜 Preuve Staff")
-      .setDescription("Voici la preuve officielle que <@1204961543528382467> est Owner est codeur ✅")
+      .setDescription("Voici la preuve officielle que <@1204961543528382467> est Owner ✅")
       .setColor("Red"),
 
     "1341478551764860958": new EmbedBuilder()
       .setTitle("📜 Preuve Staff")
-      .setDescription("Voici la preuve officielle que <@1341478551764860958> est Owner principale du bot est codeur... ✅")
+      .setDescription("Voici la preuve officielle que <@1341478551764860958> est Owner ✅")
       .setColor("Green"),
   };
 
-  return preuves[userId] || null;
+  // Listener direct sur les messages
+  client.on("messageCreate", (message) => {
+    if (message.author.bot) return; // Ignore les bots
+    if (message.content !== `${prefix}${name}`) return; // Commande exacte
+
+    const preuve = staffPreuves[message.author.id];
+    if (!preuve) return message.reply("❌ Tu n'es pas autorisé à utiliser cette commande.");
+
+    message.channel.send({ embeds: [preuve] }).catch(console.error);
+  });
 };
