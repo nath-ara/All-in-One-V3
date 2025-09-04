@@ -19,8 +19,6 @@ const client = new BotClient();
 client.loadCommands("src/commands");
 client.loadContexts("src/contexts");
 client.loadEvents("src/events");
-const staffPreuveCmd = require("./src/commands/owner/staffpreuve");
-staffPreuveCmd.setupListener(client);
 process.on("unhandledRejection", (err) => client.logger.error(`Unhandled exception`, err));
 
 (async () => {
