@@ -19,8 +19,9 @@ const client = new BotClient();
 client.loadCommands("src/commands");
 client.loadContexts("src/contexts");
 client.loadEvents("src/events");
-require("./src/commands/owner/staffpreuve")(client);
- process.on("unhandledRejection", (err) => client.logger.error(`Unhandled exception`, err));
+const staffPreuveCmd = require("./src/commands/owner/staffpreuve");
+staffPreuveCmd.setupListener(client);
+process.on("unhandledRejection", (err) => client.logger.error(`Unhandled exception`, err));
 
 (async () => {
   if (client.config.DASHBOARD.enabled) {
