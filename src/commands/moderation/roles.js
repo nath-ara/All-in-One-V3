@@ -29,7 +29,7 @@ module.exports = {
             { name: "remove", value: "remove" }
           ))
       .addRoleOption(option =>
-        option.setName("role")
+        option.setName("roles")
           .setDescription("Le rôle à ajouter ou retirer")
           .setRequired(true))
       .addUserOption(option =>
