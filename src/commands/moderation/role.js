@@ -6,7 +6,7 @@ const { PermissionsBitField, SlashCommandBuilder } = require("discord.js");
 module.exports = {
   name: "role",
   description: "Ajoute ou retire un rôle à un membre.",
-  category: "OWNER",
+  category: "MODERATION",
   botPermissions: ["ManageRoles", "EmbedLinks"],
 
   command: {
@@ -50,19 +50,16 @@ module.exports = {
     }
 
     const role = message.mentions.roles.first();
-    if (!role) return message.safeReply("❌ Rôle introuvable. Mentionne un rôle valide.");
+    if (!role) return message.safeReply("❌ Rôle introuvable.");
 
     const member = message.mentions.members.first();
-    if (!member) return message.safeReply("❌ Membre introuvable. Mentionne un utilisateur valide.");
+    if (!member) return message.safeReply("❌ Membre introuvable.");
 
     try {
-      if (action === "add") {
-        await member.roles.add(role);
-        return message.safeReply(`✅ Rôle \`${role.name}\` ajouté à \`${member.user.tag}\``);
-      } else {
-        await member.roles.remove(role);
-        return message.safeReply(`✅ Rôle \`${role.name}\` retiré de \`${member.user.tag}\``);
-      }
+      if (action === "add") await member.roles.add(role);
+      else await member.roles.remove(role);
+
+      return message.safeReply(`✅ Rôle \`${role.name}\` ${action === "add" ? "ajouté à" : "retiré de"} \`${member.user.tag}\``);
     } catch (err) {
       message.client.logger.error("RoleCommand", err);
       return message.safeReply("❌ Impossible de modifier le rôle. Vérifie la hiérarchie et les permissions.");
@@ -77,23 +74,26 @@ module.exports = {
 
     const action = interaction.options.getString("action");
     const role = interaction.options.getRole("role");
-    const member = interaction.options.getMember("user");
+    const member = interaction.options.getMember("user"); // important : getMember(), pas getUser()
 
     if (!role || !member) {
       return interaction.reply({ content: "❌ Rôle ou utilisateur introuvable.", ephemeral: true });
     }
 
     try {
-      if (action === "add") {
-        await member.roles.add(role);
-        return interaction.reply({ content: `✅ Rôle \`${role.name}\` ajouté à \`${member.user.tag}\``, ephemeral: true });
-      } else {
-        await member.roles.remove(role);
-        return interaction.reply({ content: `✅ Rôle \`${role.name}\` retiré de \`${member.user.tag}\``, ephemeral: true });
-      }
+      if (action === "add") await member.roles.add(role);
+      else await member.roles.remove(role);
+
+      return interaction.reply({
+        content: `✅ Rôle \`${role.name}\` ${action === "add" ? "ajouté à" : "retiré de"} \`${member.user.tag}\``,
+        ephemeral: true
+      });
     } catch (err) {
       interaction.client.logger.error("RoleCommand", err);
-      return interaction.reply({ content: "❌ Impossible de modifier le rôle. Vérifie la hiérarchie et les permissions.", ephemeral: true });
+      return interaction.reply({
+        content: "❌ Impossible de modifier le rôle. Vérifie la hiérarchie et les permissions.",
+        ephemeral: true
+      });
     }
   },
 };
