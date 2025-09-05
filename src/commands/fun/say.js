@@ -12,7 +12,7 @@ module.exports = {
     minArgsCount: 1,
   },
 
-  slashCommand: { enabled: true },
+  slashCommand: { enabled: false }, // désactivé
 
   // --- Commande classique (préfixe) ---
   async messageRun(message, args) {
@@ -22,14 +22,7 @@ module.exports = {
     // Supprime le message de l'utilisateur
     if (message.deletable) await message.delete().catch(() => {});
 
+    // Envoie le texte dans le channel
     await message.channel.send(text);
-  },
-
-  // --- Slash Command ---
-  async interactionRun(interaction) {
-    const text = interaction.options.getString("message");
-    if (!text) return interaction.followUp("❌ Tu dois fournir un message à répéter !");
-
-    await interaction.followUp(text);
   },
 };
