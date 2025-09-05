@@ -14,15 +14,17 @@ module.exports = {
 
   slashCommand: { enabled: false }, // désactivé
 
-  // --- Commande classique (préfixe) ---
+  // --- Commande préfixe ---
   async messageRun(message, args) {
+    // Vérifie que l'utilisateur a fourni un texte
     const text = args.join(" ");
     if (!text) return message.safeReply("❌ Tu dois fournir un message à répéter !");
 
-    // Supprime le message de l'utilisateur
+    // Supprime le message original si possible
     if (message.deletable) await message.delete().catch(() => {});
 
-    // Envoie le texte dans le channel
+    // Envoie le texte dans le channel actuel
     await message.channel.send(text);
   },
 };
+
