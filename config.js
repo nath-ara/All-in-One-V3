@@ -107,8 +107,8 @@ module.exports = {
   PRESENCE: {
     ENABLED: true, // Whether or not the bot should update its status
     STATUS: "online", // The bot's status [online, idle, dnd, invisible]
-    TYPE: "COMPETING", // Status type for the bot [PLAYING | LISTENING | WATCHING | COMPETING]
-    MESSAGE: "Natrix & Quimic & Juloxx|Kyra✨ developpement", // Your bot status message
+    TYPE: "WATCHING", // Status type for the bot [PLAYING | LISTENING | WATCHING | COMPETING]
+    MESSAGE: "Natrix & Quimic & Juloxx", // Your bot status message
   },
 
   STATS: {
