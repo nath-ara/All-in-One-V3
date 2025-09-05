@@ -6,8 +6,8 @@ const { PermissionsBitField, ChannelType } = require("discord.js");
 module.exports = {
   name: "channel",
   description: "Créer ou supprimer un salon sur le serveur",
-  category: "OWNER",
-  botPermissions: [PermissionsBitField.Flags.ManageChannels],
+  category: "MODERATION",
+  botPermissions: [PermissionsBitField.Flags.ManageChannels], // ✅ corrigé
 
   command: {
     enabled: true,
@@ -66,7 +66,9 @@ module.exports = {
       }
     } catch (err) {
       console.error(err);
-      return message.safeReply("❌ Impossible de gérer le salon. Vérifie la hiérarchie et les permissions.");
+      return message.safeReply(
+        "❌ Impossible de gérer le salon. Vérifie la hiérarchie et les permissions."
+      );
     }
   },
 
@@ -94,7 +96,9 @@ module.exports = {
       }
     } catch (err) {
       console.error(err);
-      return interaction.followUp("❌ Impossible de gérer le salon. Vérifie la hiérarchie et les permissions.");
+      return interaction.followUp(
+        "❌ Impossible de gérer le salon. Vérifie la hiérarchie et les permissions."
+      );
     }
   },
 };
