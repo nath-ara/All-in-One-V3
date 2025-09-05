@@ -1,3 +1,5 @@
+const { CommandInteraction, Message } = require("discord.js");
+
 /**
  * @type {import("@structures/Command")}
  */
@@ -8,29 +10,30 @@ module.exports = {
 
   command: {
     enabled: true,
-    usage: "<message>",
+    usage: "<texte>",
     minArgsCount: 1,
   },
 
-  slashCommand: {
-    enabled: true,
-    options: [
-      {
-        name: "message",
-        description: "Le message à répéter",
-        type: 3, // STRING
-        required: true,
-      },
-    ],
-  },
+  slashCommand: { enabled: true },
 
+  // --- Commande classique ---
+  /**
+   * @param {Message} message
+   * @param {string[]} args
+   */
   async messageRun(message, args) {
     const text = args.join(" ");
+    if (!text) return message.safeReply("❌ Tu dois fournir un message à répéter !");
     await message.channel.send(text);
   },
 
+  // --- Slash Command ---
+  /**
+   * @param {CommandInteraction} interaction
+   */
   async interactionRun(interaction) {
     const text = interaction.options.getString("message");
+    if (!text) return interaction.followUp("❌ Tu dois fournir un message à répéter !");
     await interaction.followUp(text);
   },
 };
