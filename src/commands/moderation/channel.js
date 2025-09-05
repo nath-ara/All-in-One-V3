@@ -1,4 +1,4 @@
-const { PermissionsBitField, ChannelType } = require("discord.js");
+const { ChannelType } = require("discord.js");
 
 /**
  * @type {import("@structures/Command")}
@@ -7,7 +7,7 @@ module.exports = {
   name: "channel",
   description: "Créer ou supprimer un salon sur le serveur",
   category: "MODERATION",
-  botPermissions: [PermissionsBitField.Flags.ManageChannels], // ✅ corrigé
+  botPermissions: ["ManageChannels"], // ✅ string pour ton loader
 
   command: {
     enabled: true,
@@ -39,7 +39,7 @@ module.exports = {
 
   // --- Commande préfixe ---
   async messageRun(message, args) {
-    if (!message.member.permissions.has(PermissionsBitField.Flags.ManageChannels)) {
+    if (!message.member.permissions.has("MANAGE_CHANNELS")) {
       return message.safeReply("❌ Tu n'as pas la permission de gérer les salons.");
     }
 
@@ -74,7 +74,7 @@ module.exports = {
 
   // --- Slash Command ---
   async interactionRun(interaction) {
-    if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageChannels)) {
+    if (!interaction.member.permissions.has("MANAGE_CHANNELS")) {
       return interaction.followUp("❌ Tu n'as pas la permission de gérer les salons.");
     }
 
